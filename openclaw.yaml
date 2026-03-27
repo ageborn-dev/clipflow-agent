@@ -1,0 +1,32 @@
+# ClipFlow — OpenClaw config snippet
+# Merge this into your existing openclaw.yaml
+# Replace YOUR_MODEL_HERE with your chosen model
+
+agents:
+  clipflow:
+    workspace: ~/clipflow-agent
+    model: YOUR_MODEL_HERE
+    channels:
+      - telegram
+    heartbeat: "0 7 * * *,0 8 * * 1,0 9 * * 5"
+
+mcp_servers:
+  - name: canva
+    url: https://mcp.canva.com/mcp
+    transport: http
+
+skills:
+  - clipflow
+  # Install postiz for upload: clawhub install nevo-david/postiz
+
+# Required environment variables — add to your shell profile:
+# export YOUTUBE_API_KEY="your_youtube_data_api_v3_key"
+# export POSTIZ_API_KEY="your_postiz_api_key"
+#
+# YouTube API setup (free):
+# console.cloud.google.com → New Project
+# Enable: YouTube Data API v3 + YouTube Analytics API
+# Credentials → API Key → copy here
+#
+# Postiz setup:
+# postiz.com → Sign up → Integrations → Connect YouTube → API Key

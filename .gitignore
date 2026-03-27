@@ -1,0 +1,4 @@
+USER.md
+memory/
+__pycache__/
+*.env
